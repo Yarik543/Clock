@@ -39,4 +39,4 @@ const updateTime = () => {
 setInterval(updateTime, 1000);
 
 //вызываем функцию обновления при перезагрузке страницы
-updateTime();
+updateTime(); 

@@ -20,6 +20,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh; /*выравнивает все по центру по вертикали*/
+  background-color: var(--primary-color);
+}
+
+body.dark {
+  --primary-color: #242526;
+  --white-color: #18191a;
+  --black-color: #fff;
+  --red-color: #e74c3c;
 }
 
 .container {
@@ -107,4 +115,8 @@ body {
   border-radius: 8px;
   font-size: 22px;
   box-shadow: -5px 5px 8px rgb(0 0 0 / 0.3);
+}
+
+.mode-switch:hover {
+  cursor: pointer;
 }

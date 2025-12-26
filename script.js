@@ -24,16 +24,25 @@ modeSwitch.addEventListener("click", () => {
 })
 
 const updateTime = () => {
-    //Получаем текущее время и считаем для стрелки часа
-    let date = new Date(),
-        secToDeg = (date.getSeconds() / 60) * 360;
-    minToDeg = (date.getMinutes() / 60) * 360;
-    hrToDeg = (date.getHours() / 12) * 360;
-    //поворачиваем относительно текущего времени
+    const date = new Date();
+    const sec = date.getSeconds();
+    const min = date.getMinutes();
+    const hr = date.getHours() % 12; // 0–11
+
+    // Секундная стрелка: 360° за 60 секунд
+    const secToDeg = (sec / 60) * 360;
+
+    // Минутная стрелка: 360° за 60 минут
+    const minToDeg = (min / 60) * 360;
+
+    // Часовая стрелка: 360° за 12 часов + плавное движение от минут
+    const hrToDeg = (hr / 12) * 360 + (min / 60) * 30; // 30° — это 1/12 от 360° (один час)
+
+    // Применяем повороты
     secondHand.style.transform = `rotate(${secToDeg}deg)`;
     minuteHand.style.transform = `rotate(${minToDeg}deg)`;
     hourHand.style.transform = `rotate(${hrToDeg}deg)`;
-}
+};
 
 //вызываем функцию обновления каждую секунду
 setInterval(updateTime, 1000);

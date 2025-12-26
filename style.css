@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/*Создал цвета для удобства*/
+:root {
+  --primary-color: #f6f7fb;
+  --white-color: #fff;
+  --black-color: #18191a;
+  --red-color: #e74c3c;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /*выравнивает все по центру по вертикали*/
+}
+
+.container {
+}
+
+.container .clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  background: var(--white-color);
+  box-shadow: 0 15px 25px rgb(0 0 0 / 0.1);
+  border-radius: 50%;
+  position: relative; /*собрало цифры внутрь круга*/
+}
+
+.clock label {
+  position: absolute; /*собрало элементы в центре*/
+  inset: 20px; /*отступ цифр от циферблата к центру*/
+  text-align: center;
+  transform: rotate(calc(var(--i) * (360deg / 12)));
+}
+
+.clock label span {
+  display: inline-block; /*повернуло цифры в праивльное положение*/
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--black-color);
+  transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
